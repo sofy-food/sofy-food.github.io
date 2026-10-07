@@ -18,6 +18,29 @@ body {
     color: #3b2630;
 }
 
+.language {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.language button {
+    border: none;
+    padding: 9px 15px;
+    margin-left: 5px;
+    border-radius: 20px;
+    background: white;
+    color: #3b2630;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.language button:hover {
+    background: #3b2630;
+    color: white;
+}
+
 header {
     min-height: 80vh;
     display: flex;
@@ -39,7 +62,7 @@ header h1 {
 header p {
     font-size: 21px;
     margin-top: 20px;
-    max-width: 550px;
+    max-width: 600px;
     line-height: 1.7;
 }
 
@@ -63,7 +86,7 @@ section h2 {
     margin-bottom: 15px;
 }
 
-section p {
+section > p {
     font-size: 19px;
     line-height: 1.8;
     max-width: 650px;
@@ -90,11 +113,24 @@ section p {
     font-size: 22px;
 }
 
+.card p {
+    line-height: 1.6;
+}
+
 footer {
     padding: 30px;
     text-align: center;
     background: #3b2630;
     color: white;
+}
+
+[dir="rtl"] .language {
+    right: auto;
+    left: 20px;
+}
+
+[dir="rtl"] {
+    font-family: Arial, sans-serif;
 }
 
 @media (max-width: 600px) {
@@ -112,22 +148,31 @@ footer {
 
 <body>
 
+<div class="language">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('ar')">العربية</button>
+</div>
+
 <header>
+
     <h1>SOFY</h1>
 
-    <p>
+    <p id="heroText">
         A little space for beautiful things,
         creative ideas and everything I love.
     </p>
 
-    <a class="button" href="#about">Discover SOFY</a>
+    <a class="button" id="heroButton" href="#about">
+        Discover SOFY
+    </a>
+
 </header>
 
 <section id="about">
 
-    <h2>Welcome to SOFY</h2>
+    <h2 id="aboutTitle">Welcome to SOFY</h2>
 
-    <p>
+    <p id="aboutText">
         SOFY is a personal brand created to grow,
         explore and bring beautiful ideas to life.
     </p>
@@ -135,18 +180,24 @@ footer {
     <div class="cards">
 
         <div class="card">
-            <h3>✨ Creative</h3>
-            <p>Ideas made with love and imagination.</p>
+            <h3 id="card1Title">✨ Creative</h3>
+            <p id="card1Text">
+                Ideas made with love and imagination.
+            </p>
         </div>
 
         <div class="card">
-            <h3>🎀 Personal</h3>
-            <p>A brand with its own style and personality.</p>
+            <h3 id="card2Title">🎀 Personal</h3>
+            <p id="card2Text">
+                A brand with its own style and personality.
+            </p>
         </div>
 
         <div class="card">
-            <h3>🌷 Growing</h3>
-            <p>Something new is always coming.</p>
+            <h3 id="card3Title">🌷 Growing</h3>
+            <p id="card3Text">
+                Something new is always coming.
+            </p>
         </div>
 
     </div>
@@ -154,8 +205,60 @@ footer {
 </section>
 
 <footer>
-    <p>© 2026 SOFY</p>
+    <p id="footerText">© 2026 SOFY — Made with love ❤️</p>
 </footer>
 
-</body>
-</html>
+<script>
+
+function setLanguage(language) {
+
+    if (language === "ar") {
+
+        document.documentElement.lang = "ar";
+        document.documentElement.dir = "rtl";
+
+        document.getElementById("heroText").innerText =
+        "مساحة صغيرة لكل الأشياء الجميلة، والأفكار الإبداعية، وكل حاجة بحبها.";
+
+        document.getElementById("heroButton").innerText =
+        "اكتشفي SOFY";
+
+        document.getElementById("aboutTitle").innerText =
+        "أهلاً بك في SOFY";
+
+        document.getElementById("aboutText").innerText =
+        "SOFY هي براند شخصي بيكبر مع الوقت، وبيجمع أفكار جميلة وحاجات بحبها.";
+
+        document.getElementById("card1Title").innerText =
+        "✨ إبداع";
+
+        document.getElementById("card1Text").innerText =
+        "أفكار معمولة بحب وخيال.";
+
+        document.getElementById("card2Title").innerText =
+        "🎀 شخصي";
+
+        document.getElementById("card2Text").innerText =
+        "براند له ستايله وشخصيته الخاصة.";
+
+        document.getElementById("card3Title").innerText =
+        "🌷 في تطور";
+
+        document.getElementById("card3Text").innerText =
+        "دايمًا في حاجة جديدة جاية.";
+
+        document.getElementById("footerText").innerText =
+        "© 2026 SOFY — معمول بحب ❤️";
+
+    } else {
+
+        document.documentElement.lang = "en";
+        document.documentElement.dir = "ltr";
+
+        document.getElementById("heroText").innerText =
+        "A little space for beautiful things, creative ideas and everything I love.";
+
+        document.getElementById("heroButton").innerText =
+        "Discover SOFY";
+
+        document
