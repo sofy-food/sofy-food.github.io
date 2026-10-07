@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SOFY</title>
 
 <style>
@@ -22,11 +21,11 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 10;
+    z-index: 100;
 }
 
 .language button {
-    border: none;
+    border: 1px solid #3b2630;
     padding: 9px 15px;
     margin-left: 5px;
     border-radius: 20px;
@@ -34,11 +33,6 @@ body {
     color: #3b2630;
     cursor: pointer;
     font-size: 14px;
-}
-
-.language button:hover {
-    background: #3b2630;
-    color: white;
 }
 
 header {
@@ -124,15 +118,6 @@ footer {
     color: white;
 }
 
-[dir="rtl"] .language {
-    right: auto;
-    left: 20px;
-}
-
-[dir="rtl"] {
-    font-family: Arial, sans-serif;
-}
-
 @media (max-width: 600px) {
     header h1 {
         font-size: 55px;
@@ -149,12 +134,11 @@ footer {
 <body>
 
 <div class="language">
-    <button onclick="setLanguage('en')">English</button>
-    <button onclick="setLanguage('ar')">العربية</button>
+    <button type="button" onclick="arabic()">العربية</button>
+    <button type="button" onclick="english()">English</button>
 </div>
 
 <header>
-
     <h1>SOFY</h1>
 
     <p id="heroText">
@@ -165,7 +149,6 @@ footer {
     <a class="button" id="heroButton" href="#about">
         Discover SOFY
     </a>
-
 </header>
 
 <section id="about">
@@ -181,23 +164,17 @@ footer {
 
         <div class="card">
             <h3 id="card1Title">✨ Creative</h3>
-            <p id="card1Text">
-                Ideas made with love and imagination.
-            </p>
+            <p id="card1Text">Ideas made with love and imagination.</p>
         </div>
 
         <div class="card">
             <h3 id="card2Title">🎀 Personal</h3>
-            <p id="card2Text">
-                A brand with its own style and personality.
-            </p>
+            <p id="card2Text">A brand with its own style and personality.</p>
         </div>
 
         <div class="card">
             <h3 id="card3Title">🌷 Growing</h3>
-            <p id="card3Text">
-                Something new is always coming.
-            </p>
+            <p id="card3Text">Something new is always coming.</p>
         </div>
 
     </div>
@@ -210,55 +187,83 @@ footer {
 
 <script>
 
-function setLanguage(language) {
+function arabic() {
 
-    if (language === "ar") {
+    document.getElementById("heroText").textContent =
+    "مساحة صغيرة لكل الأشياء الجميلة، والأفكار الإبداعية، وكل حاجة بحبها.";
 
-        document.documentElement.lang = "ar";
-        document.documentElement.dir = "rtl";
+    document.getElementById("heroButton").textContent =
+    "اكتشفي SOFY";
 
-        document.getElementById("heroText").innerText =
-        "مساحة صغيرة لكل الأشياء الجميلة، والأفكار الإبداعية، وكل حاجة بحبها.";
+    document.getElementById("aboutTitle").textContent =
+    "أهلاً بك في SOFY";
 
-        document.getElementById("heroButton").innerText =
-        "اكتشفي SOFY";
+    document.getElementById("aboutText").textContent =
+    "SOFY هي براند شخصي بيكبر مع الوقت، وبيجمع أفكار جميلة وحاجات بحبها.";
 
-        document.getElementById("aboutTitle").innerText =
-        "أهلاً بك في SOFY";
+    document.getElementById("card1Title").textContent =
+    "✨ إبداع";
 
-        document.getElementById("aboutText").innerText =
-        "SOFY هي براند شخصي بيكبر مع الوقت، وبيجمع أفكار جميلة وحاجات بحبها.";
+    document.getElementById("card1Text").textContent =
+    "أفكار معمولة بحب وخيال.";
 
-        document.getElementById("card1Title").innerText =
-        "✨ إبداع";
+    document.getElementById("card2Title").textContent =
+    "🎀 شخصي";
 
-        document.getElementById("card1Text").innerText =
-        "أفكار معمولة بحب وخيال.";
+    document.getElementById("card2Text").textContent =
+    "براند له ستايله وشخصيته الخاصة.";
 
-        document.getElementById("card2Title").innerText =
-        "🎀 شخصي";
+    document.getElementById("card3Title").textContent =
+    "🌷 في تطور";
 
-        document.getElementById("card2Text").innerText =
-        "براند له ستايله وشخصيته الخاصة.";
+    document.getElementById("card3Text").textContent =
+    "دايمًا في حاجة جديدة جاية.";
 
-        document.getElementById("card3Title").innerText =
-        "🌷 في تطور";
+    document.getElementById("footerText").textContent =
+    "© 2026 SOFY — معمول بحب ❤️";
 
-        document.getElementById("card3Text").innerText =
-        "دايمًا في حاجة جديدة جاية.";
+    document.documentElement.dir = "rtl";
+}
 
-        document.getElementById("footerText").innerText =
-        "© 2026 SOFY — معمول بحب ❤️";
+function english() {
 
-    } else {
+    document.getElementById("heroText").textContent =
+    "A little space for beautiful things, creative ideas and everything I love.";
 
-        document.documentElement.lang = "en";
-        document.documentElement.dir = "ltr";
+    document.getElementById("heroButton").textContent =
+    "Discover SOFY";
 
-        document.getElementById("heroText").innerText =
-        "A little space for beautiful things, creative ideas and everything I love.";
+    document.getElementById("aboutTitle").textContent =
+    "Welcome to SOFY";
 
-        document.getElementById("heroButton").innerText =
-        "Discover SOFY";
+    document.getElementById("aboutText").textContent =
+    "SOFY is a personal brand created to grow, explore and bring beautiful ideas to life.";
 
-        document
+    document.getElementById("card1Title").textContent =
+    "✨ Creative";
+
+    document.getElementById("card1Text").textContent =
+    "Ideas made with love and imagination.";
+
+    document.getElementById("card2Title").textContent =
+    "🎀 Personal";
+
+    document.getElementById("card2Text").textContent =
+    "A brand with its own style and personality.";
+
+    document.getElementById("card3Title").textContent =
+    "🌷 Growing";
+
+    document.getElementById("card3Text").textContent =
+    "Something new is always coming.";
+
+    document.getElementById("footerText").textContent =
+    "© 2026 SOFY — Made with love ❤️";
+
+    document.documentElement.dir = "ltr";
+}
+
+</script>
+
+</body>
+</html>
