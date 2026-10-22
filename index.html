@@ -4,113 +4,225 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NOVA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f7f3ff;
-  color: #302044;
+  font-family: 'Cairo', sans-serif;
+  background: #faf7ff;
+  color: #342443;
 }
+
 header {
-  min-height: 80vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #e7dcff, #cbb6f6, #a88be0);
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #f0e8ff, #d8c5fa, #b49ae5);
+  position: relative;
+  overflow: hidden;
 }
-header h1 {
+
+header::before {
+  content: "✧";
+  position: absolute;
+  top: 45px;
+  right: 12%;
+  font-size: 45px;
+  color: #fffaff;
+  opacity: 0.8;
+}
+
+header::after {
+  content: "✦";
+  position: absolute;
+  bottom: 60px;
+  left: 13%;
+  font-size: 28px;
+  color: #fffaff;
+  opacity: 0.8;
+}
+
+.logo {
   margin: 0;
-  font-size: 80px;
-  letter-spacing: 10px;
-  font-weight: 800;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(82px, 15vw, 130px);
+  font-weight: 600;
+  letter-spacing: 12px;
+  line-height: 1.1;
+  color: #4b3268;
+  text-shadow: 0 5px 25px rgba(76, 48, 105, 0.12);
 }
+
+.logo-line {
+  width: 90px;
+  height: 1px;
+  background: #755895;
+  margin: 22px auto;
+}
+
 header p {
-  font-size: 21px;
-  margin-top: 20px;
-  max-width: 650px;
-  line-height: 1.9;
+  font-size: 19px;
+  margin: 0;
+  max-width: 550px;
+  line-height: 2;
+  color: #483456;
 }
+
 .button {
-  margin-top: 25px;
-  padding: 14px 32px;
-  border-radius: 30px;
-  background: #493267;
+  display: inline-block;
+  margin-top: 30px;
+  padding: 13px 35px;
+  border-radius: 40px;
+  background: #4b3268;
   color: white;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
+  transition: 0.3s;
 }
+
+.button:hover {
+  background: #684987;
+  transform: translateY(-2px);
+}
+
 section {
-  padding: 70px 25px;
+  padding: 75px 22px;
   text-align: center;
 }
+
 section h2 {
-  font-size: 38px;
-  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 18px;
 }
-section > p {
-  font-size: 19px;
-  line-height: 2;
-  max-width: 700px;
+
+.intro {
+  font-size: 18px;
+  line-height: 2.2;
+  max-width: 650px;
   margin: auto;
+  color: #685775;
 }
+
 .cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 22px;
   margin-top: 45px;
 }
+
 .card {
   width: 250px;
-  padding: 30px 20px;
+  padding: 32px 22px;
   background: white;
-  border-radius: 22px;
-  box-shadow: 0 8px 25px rgba(70, 40, 100, 0.10);
+  border: 1px solid #eee5fa;
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(70, 40, 100, 0.06);
+  transition: 0.3s;
 }
-.card h3 { font-size: 22px; }
-.card p { line-height: 1.8; }
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 21px;
+  color: #61457e;
+}
+
+.card p {
+  line-height: 2;
+  color: #786b83;
+  font-size: 15px;
+}
+
 footer {
-  padding: 30px;
+  padding: 28px 15px;
   text-align: center;
-  background: #302044;
-  color: white;
+  background: #342443;
+  color: #f7efff;
+  font-size: 14px;
 }
+
 @media (max-width: 600px) {
-  header h1 { font-size: 55px; letter-spacing: 7px; }
-  header p { font-size: 18px; }
+  header {
+    min-height: 78vh;
+  }
+
+  .logo {
+    letter-spacing: 8px;
+  }
+
+  header p {
+    font-size: 17px;
+  }
+
+  section h2 {
+    font-size: 27px;
+  }
+
+  .intro {
+    font-size: 16px;
+  }
 }
 </style>
 </head>
+
 <body>
+
 <header>
-  <h1>NOVA</h1>
-  <p>مساحة لكل فكرة جديدة، ولكل حاجة جميلة بنحبها ونحب نشاركها معاكم.</p>
-  <a class="button" href="#about">اكتشفي NOVA</a>
+  <h1 class="logo">NOVA</h1>
+  <div class="logo-line"></div>
+  <p>هنا بحوّل أفكاري لحاجات مميزة معمولة بحب.</p>
+  <a class="button" href="#about">اكتشفي عالمي</a>
 </header>
+
 <section id="about">
   <h2>أهلاً بيكي في NOVA ✨</h2>
-  <p>NOVA براند بيكبر مع الوقت، ومكان بنجمع فيه أفكارنا وحاجاتنا المميزة. ولسه البداية... والأجمل جاي.</p>
+
+  <p class="intro">
+    كل فكرة ليها حكاية، وكل تفصيلة ممكن تتحول لحاجة مميزة.
+    هنا هشارك معاكي الحاجات اللي بحبها وبصنعها من خيالي وبكل حب.
+  </p>
+
   <div class="cards">
     <div class="card">
-      <h3>✨ إبداع</h3>
-      <p>أفكار جديدة معمولة بحب وخيال.</p>
+      <h3>✧ إبداع</h3>
+      <p>أحوّل أفكاري لتفاصيل مختلفة وليها طابع خاص.</p>
     </div>
+
     <div class="card">
-      <h3>💜 شخصية</h3>
-      <p>NOVA ليها طابعها وستايلها الخاص.</p>
+      <h3>♡ بحب</h3>
+      <p>كل حاجة بعملها فيها جزء من ذوقي وشخصيتي.</p>
     </div>
+
     <div class="card">
-      <h3>🌙 بداية</h3>
-      <p>كل حاجة كبيرة بتبدأ بفكرة صغيرة.</p>
+      <h3>✦ خيال</h3>
+      <p>مساحة أعبّر فيها عن أفكاري بطريقتي.</p>
     </div>
   </div>
 </section>
+
 <footer>
-  <p>© 2026 NOVA — معمول بحب 💜</p>
+  © 2026 NOVA — كل تفصيلة معمولة بحب ♡
 </footer>
+
 </body>
 </html>
